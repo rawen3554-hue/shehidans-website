@@ -1,0 +1,33 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isOwner() {
+      return request.auth != null
+        && request.auth.uid == 'OWNER_UID_GOES_HERE';
+    }
+
+    // Everyone can read public community information. Only the verified owner may publish or delete it.
+    match /community/{entryId} {
+      allow read: if true;
+      allow create, update, delete: if isOwner();
+    }
+    match /directory/{entryId} {
+      allow read: if true;
+      allow create, update, delete: if isOwner();
+    }
+    match /areas/{entryId} {
+      allow read: if true;
+      allow create, update, delete: if isOwner();
+    }
+
+    // Users can only read/write their own profile document.
+    match /profiles/{userId} {
+      allow read, create, update, delete: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // No other documents are publicly readable or writable.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

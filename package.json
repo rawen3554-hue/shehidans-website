@@ -1,0 +1,17 @@
+{
+  "name": "britain-30-shehidans",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Standalone public website for Britain, 30 Shehidans",
+  "scripts": {
+    "deploy": "node scripts/sync-site-url.mjs && firebase deploy --only hosting,firestore:rules",
+    "deploy:hosting": "node scripts/sync-site-url.mjs && firebase deploy --only hosting",
+    "deploy:rules": "firebase deploy --only firestore:rules",
+    "serve": "firebase emulators:start --only hosting,firestore",
+    "start": "node server.mjs",
+    "check": "node --check server.mjs && node --check public/app.js"
+  },
+  "devDependencies": {
+    "firebase-tools": "^15.35.0"
+  }
+}

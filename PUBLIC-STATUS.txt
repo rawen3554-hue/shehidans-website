@@ -1,0 +1,7 @@
+Britain, 30 Shehidans — deployment status
+
+Independent website source package; no Higgsfield dependency.
+Run locally with: npm start
+Not yet published to a public URL.
+Firebase credentials are placeholders; shared database publishing/editing needs a configured backend.
+Owner permissions must be enforced server-side; the hidden mission is a visual easter egg only.

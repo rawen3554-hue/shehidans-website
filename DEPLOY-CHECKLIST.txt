@@ -1,0 +1,14 @@
+BRITAIN, 30 SHEHIDANS — PUBLIC LAUNCH CHECKLIST
+[ ] Create a Firebase project under the owner's Google account.
+[ ] Add a Firebase Web App and insert its public config into public/firebase-config.js.
+[ ] Enable Google Authentication.
+[ ] Create the default Cloud Firestore database.
+[ ] Put the owner's Firebase Auth UID in public/firebase-config.js and firestore.rules.
+[ ] Enable Gmail API only if the optional Gmail read/send feature is wanted; request only gmail.readonly + gmail.send.
+[ ] Install Firebase CLI and authorize it with the owner's Google account.
+[ ] Replace project-ID placeholders in canonical URL, robots.txt and sitemap.xml.
+[ ] Deploy hosting + Firestore rules.
+[ ] Test the public URL while signed out / in a private browser window.
+[ ] Test owner publishing from the configured owner Google account.
+[ ] Test non-owner accounts cannot publish.
+[ ] Submit sitemap.xml to Google Search Console.
